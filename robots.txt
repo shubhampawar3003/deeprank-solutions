@@ -1,0 +1,12 @@
+# Deeprank Solutions - Robot Instructions
+
+User-agent: *
+Allow: /
+
+# Block sensitive directories
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /database/
+
+# Sitemap
+Sitemap: https://www.deeprank.com/sitemap.xml
