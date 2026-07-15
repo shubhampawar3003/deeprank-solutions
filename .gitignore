@@ -1,0 +1,50 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# PHP
+.php_cs
+.php_cs.cache
+vendor/
+composer.lock
+
+# Database
+*.sql.bak
+.env
+config/local.php
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+admin/uploads/*
+!admin/uploads/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# Cache
+cache/
+.cache/
+*.cache
+
+# Node modules
+node_modules/
+npm-debug.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Local configuration
+local-config.php
+.env.local

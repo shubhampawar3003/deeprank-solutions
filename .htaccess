@@ -1,0 +1,46 @@
+# Deeprank Solutions - Apache Configuration
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /deeprank-solutions/
+    
+    # Remove .php from URLs
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([a-zA-Z0-9-]+)/?$ $1.php [L]
+    
+    # Block sensitive files
+    RewriteRule ^(includes|admin/includes|database)(/|$) - [F,L]
+    RewriteRule \.(env|sql|bak)$ - [F,L]
+</IfModule>
+
+# Disable Directory Listing
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# Set Character Set
+<IfModule mod_headers.c>
+    AddCharset UTF-8 .html .php
+</IfModule>
+
+# Enable Gzip Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
